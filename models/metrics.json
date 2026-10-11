@@ -1,0 +1,342 @@
+{
+  "trained_at": "2026-10-11T18:06:55",
+  "rows": 259,
+  "sklearn_version": "1.8.0",
+  "category_counts": {
+    "Termination": 34,
+    "Payment": 32,
+    "Restriction": 26,
+    "Penalty": 25,
+    "Administrative": 23,
+    "Security_Deposit": 22,
+    "Liability": 22,
+    "Confidentiality": 21,
+    "Jurisdiction": 21,
+    "Indemnification": 18,
+    "Intellectual_Property": 15
+  },
+  "risk_counts": {
+    "Medium": 109,
+    "High": 83,
+    "Low": 67
+  },
+  "cuad": {
+    "used": true,
+    "clauses_in_file": 6362,
+    "clauses_used_in_training": 776,
+    "contracts": 469,
+    "sample_weight": 0.3,
+    "cap_per_category": 100
+  },
+  "category": {
+    "cv_folds": 5,
+    "accuracy": 0.792,
+    "macro_f1": 0.8,
+    "majority_baseline": 0.131,
+    "per_class": {
+      "Administrative": {
+        "precision": 0.591,
+        "recall": 0.565,
+        "f1-score": 0.578,
+        "support": 23
+      },
+      "Confidentiality": {
+        "precision": 0.882,
+        "recall": 0.714,
+        "f1-score": 0.789,
+        "support": 21
+      },
+      "Indemnification": {
+        "precision": 1.0,
+        "recall": 0.889,
+        "f1-score": 0.941,
+        "support": 18
+      },
+      "Intellectual_Property": {
+        "precision": 0.8,
+        "recall": 0.8,
+        "f1-score": 0.8,
+        "support": 15
+      },
+      "Jurisdiction": {
+        "precision": 0.85,
+        "recall": 0.81,
+        "f1-score": 0.829,
+        "support": 21
+      },
+      "Liability": {
+        "precision": 0.769,
+        "recall": 0.909,
+        "f1-score": 0.833,
+        "support": 22
+      },
+      "Payment": {
+        "precision": 0.735,
+        "recall": 0.781,
+        "f1-score": 0.758,
+        "support": 32
+      },
+      "Penalty": {
+        "precision": 0.769,
+        "recall": 0.8,
+        "f1-score": 0.784,
+        "support": 25
+      },
+      "Restriction": {
+        "precision": 0.677,
+        "recall": 0.808,
+        "f1-score": 0.737,
+        "support": 26
+      },
+      "Security_Deposit": {
+        "precision": 1.0,
+        "recall": 0.955,
+        "f1-score": 0.977,
+        "support": 22
+      },
+      "Termination": {
+        "precision": 0.806,
+        "recall": 0.735,
+        "f1-score": 0.769,
+        "support": 34
+      }
+    },
+    "confusion": {
+      "labels": [
+        "Administrative",
+        "Confidentiality",
+        "Indemnification",
+        "Intellectual_Property",
+        "Jurisdiction",
+        "Liability",
+        "Payment",
+        "Penalty",
+        "Restriction",
+        "Security_Deposit",
+        "Termination"
+      ],
+      "matrix": [
+        [
+          13,
+          0,
+          0,
+          1,
+          0,
+          1,
+          1,
+          0,
+          3,
+          0,
+          4
+        ],
+        [
+          1,
+          15,
+          0,
+          0,
+          0,
+          2,
+          0,
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          16,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          12,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          17,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          1,
+          20,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          25,
+          2,
+          2,
+          0,
+          2
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          3,
+          20,
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          2,
+          0,
+          1,
+          0,
+          0,
+          21,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          21,
+          0
+        ],
+        [
+          3,
+          1,
+          0,
+          0,
+          0,
+          0,
+          2,
+          2,
+          1,
+          0,
+          25
+        ]
+      ]
+    }
+  },
+  "risk": {
+    "cv_folds": 5,
+    "accuracy": 0.622,
+    "macro_f1": 0.608,
+    "majority_baseline": 0.421,
+    "per_class": {
+      "High": {
+        "precision": 0.663,
+        "recall": 0.735,
+        "f1-score": 0.697,
+        "support": 83
+      },
+      "Low": {
+        "precision": 0.592,
+        "recall": 0.433,
+        "f1-score": 0.5,
+        "support": 67
+      },
+      "Medium": {
+        "precision": 0.602,
+        "recall": 0.651,
+        "f1-score": 0.626,
+        "support": 109
+      }
+    },
+    "confusion": {
+      "labels": [
+        "High",
+        "Low",
+        "Medium"
+      ],
+      "matrix": [
+        [
+          61,
+          4,
+          18
+        ],
+        [
+          9,
+          29,
+          29
+        ],
+        [
+          22,
+          16,
+          71
+        ]
+      ]
+    }
+  },
+  "risk_hybrid": {
+    "ml_only_accuracy": 0.622,
+    "hybrid_accuracy": 0.653,
+    "hybrid_macro_f1": 0.634
+  },
+  "real_contracts": {
+    "test_clauses": 4017,
+    "contracts": 469,
+    "categories": [
+      "Administrative",
+      "Intellectual_Property",
+      "Jurisdiction",
+      "Liability",
+      "Payment",
+      "Penalty",
+      "Restriction",
+      "Termination"
+    ],
+    "accuracy": 0.818,
+    "macro_f1": 0.809,
+    "hand_only_accuracy": 0.543,
+    "hand_only_macro_f1": 0.519,
+    "settings": {
+      "cuad_cap_per_category": 100,
+      "cuad_sample_weight": 0.3
+    }
+  }
+}

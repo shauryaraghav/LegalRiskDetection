@@ -1,0 +1,260 @@
+Clause,Category,Risk_Level
+Rent shall be paid on or before the 5th of every month,Payment,Low
+Failure to remit rent within seven days shall attract liquidated damages calculated at five percent per month,Penalty,High
+Security deposit is refundable without interest,Security_Deposit,Medium
+Security deposit shall stand forfeited in case of willful misconduct,Security_Deposit,High
+Tenant shall not sublet the premises without prior written consent,Restriction,Medium
+Landlord may terminate the agreement without prior notice upon material breach,Termination,High
+Tenant must vacate the property upon termination,Termination,Medium
+Tenant liable for double rent if premises not vacated after expiry,Penalty,High
+The Tenant shall pay utility charges separately from monthly rent,Payment,Low
+The Lessor retains the right to enter the premises without notice in case of emergency,Restriction,Medium
+The Lease may be renewed upon mutual written consent,Administrative,Low
+Security deposit shall not carry any interest during lease term,Security_Deposit,Medium
+Employee may be terminated for just cause without notice,Termination,High
+Either party may terminate employment with thirty days written notice,Termination,Medium
+Employee must maintain confidentiality of trade secrets,Confidentiality,Medium
+Employer reserves the right to modify internal policies at its sole discretion,Administrative,Medium
+Salary shall be subject to statutory deductions,Payment,Low
+Employee shall not engage in competing business during employment,Restriction,Medium
+Failure to comply with statutory regulations shall constitute material breach,Termination,High
+Intellectual property created during employment shall vest exclusively with Employer,Intellectual_Property,Medium
+The Employee acknowledges compliance with company handbook policies,Administrative,Low
+Any unauthorized assignment of this Agreement shall render it void,Termination,High
+Freelancer shall receive payment upon completion of services,Payment,Low
+Late payment shall incur monthly penalty at agreed percentage,Penalty,High
+Hiring Party may withhold payment in case of incomplete performance,Payment,Medium
+Freelancer shall indemnify Hiring Party against third-party claims,Indemnification,High
+Liability under this Agreement shall be limited to the value of the contract,Liability,Medium
+Confidential information shall remain protected even after termination,Confidentiality,Medium
+Agreement shall automatically terminate upon bankruptcy of either party,Termination,High
+Freelancer shall bear all tax liabilities arising from payments received,Payment,Medium
+No waiver of breach shall constitute waiver of subsequent breaches,Administrative,Low
+Disputes shall be resolved exclusively through binding arbitration,Jurisdiction,Medium
+Borrower shall repay the loan in accordance with amortization schedule,Payment,Low
+Interest on overdue amounts shall compound quarterly,Penalty,High
+Front end processing fee is non refundable,Payment,High
+Borrower shall not incur additional indebtedness without prior written approval,Restriction,High
+Failure to utilize funds for approved project shall result in immediate recall,Termination,High
+Borrower shall furnish audited financial statements annually,Administrative,Low
+Liquidated damages at five percent shall apply on defaulted installments,Penalty,High
+Lender may publish name of defaulter in public records,Liability,High
+Interest rebate available only upon timely repayment,Payment,Medium
+Borrower shall obtain government approvals prior to project execution,Administrative,Medium
+Loan recall possible if funding source withdrawn,Termination,High
+The Borrower irrevocably waives right to contest enforcement of security,Liability,High
+Lessee shall indemnify Lessor against business related claims,Indemnification,High
+Lessor may revise rental amount upon renewal of lease,Payment,Medium
+Lessee shall restore premises to original condition upon expiry,Restriction,Medium
+Lessor shall not be liable for possession delay beyond reasonable control,Liability,Medium
+Courts of specified city shall have exclusive jurisdiction,Jurisdiction,Medium
+Lease amount payable in advance each month,Payment,Low
+Failure to comply with terms constitutes material breach,Termination,High
+Security deposit refundable within ten days after vacation subject to deductions,Security_Deposit,Medium
+Lessee shall not store hazardous materials on premises,Restriction,Medium
+Late rent payment incurs fixed late fee,Penalty,Medium
+Failure to make timely payment shall result in additional late fee charges,Penalty,Medium
+Advance rent shall be adjusted against final month dues,Payment,Medium
+Either party may terminate this Agreement by giving written notice,Termination,Medium
+Immediate termination shall apply in case of gross misconduct,Termination,High
+Security deposit shall be refunded after inspection of premises,Security_Deposit,Medium
+Deposit may be forfeited for breach of contractual obligations,Security_Deposit,High
+Confidential data shall not be disclosed to any third party,Confidentiality,Medium
+Breach of confidentiality shall attract legal damages,Penalty,High
+The Company shall not be liable for indirect or consequential losses,Liability,Medium
+Borrower shall indemnify lender against any third-party claims,Indemnification,High
+Subleasing of property without consent is strictly prohibited,Restriction,Medium
+Engaging in competing business during term is prohibited,Restriction,Medium
+All disputes shall fall under exclusive jurisdiction of local courts,Jurisdiction,Medium
+Disputes shall be resolved through binding arbitration,Jurisdiction,Medium
+Penalty of five percent per month shall apply on overdue amounts,Penalty,High
+Regular monthly rent shall be paid in advance,Payment,Low
+Lender reserves right to accelerate repayment upon default,Termination,High
+Employee must return company property upon termination,Termination,Medium
+Tenant shall maintain premises in good condition,Restriction,Low
+Failure to vacate shall result in double rent liability,Penalty,High
+Employer may deduct outstanding dues from final settlement,Payment,Medium
+Borrower must comply with all regulatory requirements,Restriction,Medium
+Unauthorized disclosure of trade secrets shall result in dismissal,Termination,High
+Security deposit shall not carry any interest,Security_Deposit,Medium
+Late salary payment shall incur statutory interest,Penalty,Medium
+Agreement shall automatically terminate upon insolvency,Termination,High
+Tenant shall not store hazardous materials on premises,Restriction,Medium
+Lessee liable for damage beyond normal wear and tear,Liability,Medium
+All payments are subject to applicable taxes,Payment,Low
+Violation of agreement terms constitutes material breach,Termination,High
+The parties agree to maintain confidentiality even after termination,Confidentiality,Medium
+Refund of deposit shall be subject to deduction of dues,Security_Deposit,Medium
+Repeated late payments shall attract additional penalty charges,Penalty,High
+Borrower shall submit quarterly financial reports,Administrative,Low
+Failure to comply may result in immediate termination,Termination,High
+Payment shall be processed within seven working days,Payment,Low
+Any unlawful use of premises shall void this agreement,Termination,High
+Employee agrees not to solicit clients post termination,Restriction,Medium
+Jurisdiction for disputes shall lie exclusively in Delhi courts,Jurisdiction,Medium
+Security deposit forfeiture shall apply for major damages,Security_Deposit,High
+Late payment beyond fifteen days shall incur additional charges,Penalty,Medium
+The company retains sole discretion in policy amendments,Administrative,Medium
+All financial obligations must be cleared before termination,Payment,Medium
+Confidential documents must be returned upon exit,Confidentiality,Medium
+Failure to maintain compliance may attract penalties,Penalty,Medium
+Termination may occur without notice in case of fraud,Termination,High
+Security deposit adjustment shall be mutually agreed,Security_Deposit,Low
+Payment obligations survive termination of contract,Payment,Medium
+Borrower shall remain liable until full repayment,Liability,High
+The party shall not disclose confidential information,Confidentiality,Medium
+Delay will result in penalty charges,Penalty,Medium
+All disputes shall be handled in court,Jurisdiction,Low
+Either party can terminate the contract without notice,Termination,High
+All data must remain confidential,Confidentiality,Medium
+The agreement shall remain valid for one year,Administrative,Low
+Deposit must be paid before service begins,Security_Deposit,Medium
+Security deposit shall be refunded after inspection,Security_Deposit,Medium
+The vendor shall indemnify the client,Indemnification,High
+The vendor shall follow all guidelines,Administrative,Low
+The company is not liable for indirect damages,Liability,Medium
+This agreement is governed by Indian law,Jurisdiction,Low
+The Contractor shall indemnify and hold harmless the Client against all losses claims and expenses without limit,Indemnification,High
+Supplier agrees to defend and indemnify the Buyer from any claim arising out of its negligence or misconduct,Indemnification,High
+The Licensee shall indemnify the Licensor against all third party claims including legal fees on a full indemnity basis,Indemnification,High
+Consultant shall hold the Company harmless from any damages arising from the services whether or not caused by the Company,Indemnification,High
+The Tenant shall indemnify the Landlord for any injury or loss occurring on the premises irrespective of cause,Indemnification,High
+Each party shall indemnify the other against losses caused by its own breach of this Agreement,Indemnification,Medium
+The Vendor shall indemnify the Customer against claims of intellectual property infringement subject to prompt notice,Indemnification,Medium
+The Service Provider shall indemnify the Client for direct damages up to the fees paid in the preceding twelve months,Indemnification,Medium
+Indemnification obligations apply only to third party claims finally awarded by a court,Indemnification,Medium
+The indemnified party must notify the indemnifying party of any claim within thirty days,Indemnification,Medium
+The Employer shall indemnify the Employee for expenses reasonably incurred in the course of duties,Indemnification,Medium
+The indemnified party shall take reasonable steps to mitigate its losses,Indemnification,Low
+Indemnity claims shall be handled in accordance with the procedure set out in the schedule,Indemnification,Low
+Neither party shall be required to indemnify the other for losses caused by the other party's own negligence,Indemnification,Low
+The parties submit to the non-exclusive jurisdiction of the courts of Mumbai,Jurisdiction,Low
+Any dispute shall first be referred to mediation before legal proceedings are commenced,Jurisdiction,Low
+This Agreement shall be governed by the laws of the State of California,Jurisdiction,Low
+The parties shall first attempt to resolve any dispute through good faith negotiation,Jurisdiction,Low
+The language of any proceedings under this Agreement shall be English,Jurisdiction,Low
+Disputes shall be referred to a sole arbitrator appointed by mutual consent,Jurisdiction,Medium
+The courts at Chennai shall have exclusive jurisdiction over all disputes,Jurisdiction,Medium
+Arbitration shall be conducted in Singapore under the rules of the SIAC,Jurisdiction,Medium
+The prevailing party in any dispute shall be entitled to recover its legal costs,Jurisdiction,Medium
+Any dispute must be raised within six months of its occurrence failing which it is barred,Jurisdiction,Medium
+The Tenant waives the right to bring any claim in court and accepts the Landlord's choice of forum,Jurisdiction,High
+The decision of the arbitrator appointed by the Company shall be final and binding with no right of appeal,Jurisdiction,High
+The Customer irrevocably waives the right to a jury trial and to participate in any class action,Jurisdiction,High
+The Borrower consents to the jurisdiction of any court chosen by the Lender and waives all objections,Jurisdiction,High
+Confidentiality obligations do not apply to information that is already in the public domain,Confidentiality,Low
+Each party shall protect the other's information with the same care it uses for its own,Confidentiality,Low
+Information independently developed without use of confidential material is excluded,Confidentiality,Low
+Disclosure required by law shall not constitute a breach provided prior notice is given,Confidentiality,Low
+The Receiving Party shall use confidential information solely for the purpose of this Agreement,Confidentiality,Medium
+Confidentiality obligations shall continue for three years after termination,Confidentiality,Medium
+Employee shall not disclose customer lists to any third party,Confidentiality,Medium
+Confidential materials must be returned or destroyed on request,Confidentiality,Medium
+Disclosure to employees is permitted only on a need to know basis,Confidentiality,Medium
+Confidentiality obligations shall continue in perpetuity and apply to all information whether or not marked confidential,Confidentiality,High
+Any breach of confidentiality shall entitle the Company to injunctive relief and unlimited damages,Confidentiality,High
+The Employee shall pay liquidated damages for every instance of unauthorised disclosure,Confidentiality,High
+All information received from the Company in any form shall be deemed confidential without exception,Confidentiality,High
+The Recipient assumes liability for any disclosure by its affiliates and advisors regardless of fault,Confidentiality,High
+This Agreement may be amended only by a written document signed by both parties,Administrative,Low
+Notices shall be given in writing to the addresses set out in this Agreement,Administrative,Low
+Headings are for convenience only and do not affect interpretation of this Agreement,Administrative,Low
+This Agreement constitutes the entire understanding between the parties,Administrative,Low
+The parties may execute this Agreement in counterparts,Administrative,Low
+If any provision is held invalid the remaining provisions shall continue in effect,Administrative,Low
+The Agreement shall commence on the effective date and continue for twelve months,Administrative,Low
+The Company may assign this Agreement to any affiliate without the consent of the other party,Administrative,Medium
+The Company may amend these terms by posting the revised version on its website,Administrative,Medium
+This Agreement shall renew automatically for successive one year terms unless cancelled,Administrative,Medium
+The Supplier may subcontract any part of the services without informing the Customer,Administrative,Medium
+The Company may change any term of this Agreement at any time without notice to the other party,Administrative,High
+The Company may modify or discontinue the services at its sole discretion without liability,Administrative,High
+Each party shall be responsible for its own employees and equipment,Liability,Low
+The Tenant shall be responsible for minor day to day maintenance,Liability,Low
+Each party shall maintain adequate insurance coverage,Liability,Low
+Neither party shall be liable for delays caused by events beyond its reasonable control,Liability,Low
+The Supplier's total liability shall not exceed the fees paid under this Agreement,Liability,Medium
+The Contractor shall be liable for damage caused by its negligence,Liability,Medium
+Neither party shall be liable for loss of profit or indirect damages,Liability,Medium
+The Lessee shall bear the cost of repairs for damage caused by misuse,Liability,Medium
+The Seller shall not be liable for defects reported after thirty days of delivery,Liability,Medium
+The Client shall bear unlimited liability for all losses arising from use of the services,Liability,High
+The Company excludes all liability for any loss or damage however caused,Liability,High
+The Guarantor shall remain jointly and severally liable for all obligations of the Borrower,Liability,High
+The Customer accepts all risk and the Provider shall have no liability whatsoever,Liability,High
+The Employee shall be personally liable for any loss suffered by the Company during employment,Liability,High
+The Tenant shall keep the common areas clean,Restriction,Low
+Employee shall comply with the company's reasonable working hours,Restriction,Low
+The Contractor shall follow the safety rules displayed at the site,Restriction,Low
+The Licensee shall display the Licensor's copyright notice on all copies,Restriction,Low
+The Employee shall not work for a competitor for six months after leaving,Restriction,Medium
+The Licensee shall not sublicense the software without written consent,Restriction,Medium
+The Tenant shall not make structural alterations without the Landlord's approval,Restriction,Medium
+The Contractor shall not hire the Client's employees during the term,Restriction,Medium
+The Tenant shall not use the premises for commercial purposes,Restriction,Medium
+The Vendor shall not use the Client's logo without prior written permission,Restriction,Medium
+The Employee shall not engage in any similar business anywhere in the world for five years after termination,Restriction,High
+The Distributor shall purchase exclusively from the Company and shall not deal with any other supplier,Restriction,High
+The Tenant shall not vacate the premises during the lease term under any circumstances,Restriction,High
+The Freelancer assigns all present and future work including work unrelated to the Client to the Client,Restriction,High
+The security deposit shall be held in a separate account,Security_Deposit,Low
+The deposit shall be returned in full if the premises are left in their original condition,Security_Deposit,Low
+Landlord shall provide a written receipt for the security deposit,Security_Deposit,Low
+Deductions from the security deposit shall be itemised in writing,Security_Deposit,Low
+The deposit may be applied against unpaid rent or damages,Security_Deposit,Medium
+Landlord shall return the deposit within sixty days of the Tenant vacating,Security_Deposit,Medium
+The security deposit equals three months rent and is payable at signing,Security_Deposit,Medium
+The security deposit shall be forfeited in full upon early termination for any reason,Security_Deposit,High
+The Landlord may retain the deposit at its sole discretion,Security_Deposit,High
+The deposit is non-refundable under all circumstances,Security_Deposit,High
+Invoices shall be paid within thirty days of receipt,Payment,Low
+Fees are payable monthly in arrears by bank transfer,Payment,Low
+The Client shall reimburse approved travel expenses at cost,Payment,Low
+Salary shall be credited to the Employee's bank account on the last working day of each month,Payment,Low
+Prices are stated exclusive of applicable taxes,Payment,Low
+The Company may withhold payment pending resolution of any dispute,Payment,Medium
+Payments received shall first be applied to interest and then to principal,Payment,Medium
+Fees may be increased annually by up to ten percent,Payment,Medium
+The Buyer shall pay all customs duties and import taxes,Payment,Medium
+Unused prepaid fees shall not be carried forward,Payment,Medium
+The Client shall pay a non-refundable advance of fifty percent before work begins,Payment,High
+The Customer shall pay all fees regardless of whether the services are delivered,Payment,High
+Payment is due immediately and no deduction or set off shall be permitted,Payment,High
+All payments are final and no refunds shall be given for any reason,Payment,High
+Either party may terminate this Agreement by giving ninety days written notice,Termination,Low
+This Agreement shall expire automatically at the end of the term unless renewed,Termination,Low
+The Tenant may terminate the lease with sixty days written notice after the lock in period,Termination,Low
+Termination shall not affect rights accrued before the termination date,Termination,Low
+Either party may terminate by mutual written agreement,Termination,Low
+The Company may terminate this Agreement on thirty days notice if the Contractor fails to remedy a breach,Termination,Medium
+Either party may terminate on seven days notice during the probation period,Termination,Medium
+The Client may terminate for convenience subject to payment for work completed,Termination,Medium
+The Employee shall serve a notice period of three months before resignation takes effect,Termination,Medium
+The Company may terminate this Agreement at any time without cause and without notice,Termination,High
+The Landlord may evict the Tenant immediately upon any alleged violation,Termination,High
+The Supplier may suspend services and terminate immediately if payment is delayed by one day,Termination,High
+The Employer may dismiss the Employee at its sole discretion without compensation,Termination,High
+A reminder shall be issued before any late fee is applied,Penalty,Low
+No penalty shall apply if payment is made within the grace period of ten days,Penalty,Low
+A late fee of two percent shall apply to overdue invoices,Penalty,Medium
+Interest at the statutory rate shall accrue on delayed payments,Penalty,Medium
+The Contractor shall pay a delay charge of one percent for each week of delay up to a cap of ten percent,Penalty,Medium
+A fixed reconnection charge shall apply after suspension of services,Penalty,Medium
+Liquidated damages of twenty five percent of the contract value shall be payable on any breach,Penalty,High
+The Tenant shall pay triple rent for each day of delay in vacating,Penalty,High
+A penalty of five percent per day shall apply without any cap on overdue amounts,Penalty,High
+Any default shall make the full balance immediately payable together with punitive charges,Penalty,High
+The Licensor retains ownership of all of its pre-existing intellectual property,Intellectual_Property,Low
+Each party shall retain ownership of the intellectual property it owned before this Agreement,Intellectual_Property,Low
+The Employee may freely use the general skills and knowledge gained during employment,Intellectual_Property,Low
+The Client shall own the final deliverables upon payment of all fees,Intellectual_Property,Low
+The Licensee is granted a non-exclusive and non-transferable licence to use the Software for its internal business purposes,Intellectual_Property,Medium
+Intellectual property developed jointly by the parties shall be jointly owned,Intellectual_Property,Medium
+The Contractor grants the Client a licence to use the pre-existing materials embedded in the deliverables,Intellectual_Property,Medium
+The Employee assigns to the Company all inventions made in the course of employment,Intellectual_Property,Medium
+The source code shall be held in escrow and released only on insolvency of the Vendor,Intellectual_Property,Medium
+All inventions and ideas of the Employee whether or not related to the business shall belong exclusively to the Company,Intellectual_Property,High
+The Licensee grants the Company a perpetual irrevocable worldwide royalty free licence to all content it uploads,Intellectual_Property,High
+The Company may use the Employee's name image and work product for any purpose without compensation,Intellectual_Property,High
+The Licensor may revoke the licence at any time at its sole discretion without refund,Intellectual_Property,High
+The Contractor irrevocably assigns all present and future intellectual property rights to the Client without further payment,Intellectual_Property,High
