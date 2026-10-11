@@ -1,143 +1,173 @@
-# Legal Risk Detection & Clause Classification System ⚖️
+# Legal Risk Detection System
 
-An NLP prototype that splits a legal agreement (PDF / TXT / pasted text) into clauses,
-classifies each clause (Payment, Termination, Penalty, Liability, Indemnification, ...),
-rates its risk (High / Medium / Low), explains the decision, **suggests how to renegotiate risky clauses
-(with example wording)** and gives a **detailed risk-score analysis**. A Streamlit dashboard shows the
-results and exports a PDF report.
+A contract-review assistant that reads a legal agreement, breaks it into clauses, works out what each clause is about, rates how risky it is for the weaker party, and suggests what to ask for instead.
 
-> ⚠ Educational prototype - **not legal advice**. See [docs/LABELING.md](docs/LABELING.md) for limitations.
+You can use it three ways: a Streamlit dashboard, a REST API, or the command line.
 
-## Quick start
+> **Disclaimer:** this is an educational NLP project. It is not legal advice and is no substitute for a lawyer.
+
+---
+
+## What it does
+
+- **Reads** PDF, TXT or pasted text and splits it into clauses (handles numbering, wrapped lines and abbreviations such as "e.g." or "Inc.").
+- **Classifies** each clause into one of 11 categories: Payment, Termination, Penalty, Liability, Indemnification, Confidentiality, Jurisdiction, Restriction, Security Deposit, Intellectual Property and Administrative.
+- **Rates risk** as Low, Medium or High using a machine-learning model combined with a rule engine, and explains the decision (the rule that fired and the words that influenced the model).
+- **Suggests improvements** for risky clauses, each with an issue, an action to ask for, and example wording. It also flags protections that are missing from the whole document, such as a liability cap or a notice period.
+- **Scores the agreement** with a breakdown by category, "what if we renegotiated this?" scenarios, and a reliability indicator.
+- **Compares two versions** of a contract and shows which clauses were added, removed or changed, and whether the revision is riskier.
+- **Learns from corrections:** wrong predictions can be fixed in the UI and fed back into retraining.
+- **Exports** a PDF report.
+- **Optional:** an "Explain with AI" button that uses an LLM to explain a single clause in plain language (off by default).
+
+## Getting started
 
 ```bash
+git clone <your-repo-url>
+cd Legal-Risk-Detection-System
 pip install -r requirements.txt
-streamlit run app.py                       # dashboard (+ Compare Contracts and Model Evaluation pages)
-uvicorn src.api:app --reload               # REST API, interactive docs at http://127.0.0.1:8000/docs
-python -m src.agreement_analyzer my.txt    # command-line report
-python -m pytest -q                        # tests
 ```
 
-Models are loaded from `models/`. If they are missing or were built with an incompatible
-scikit-learn version, they are re-trained automatically on first use.
+Trained models are included in `models/`. If they are missing, or were built with a different scikit-learn version, they are retrained automatically the first time you run the app.
 
-## New in v3: suggestions & risk-score analysis
-
-**💡 Suggestions** (`src/suggestions.py`)
-* Every Medium/High clause gets up to 3 negotiation ideas, each with an *issue*, an *action* and *example wording*
-  (e.g. "without notice" -> ask for a 30-day written notice period).
-* Suggestions come from the rule that flagged the clause, with a per-category fallback; protections already in the clause
-  (a liability cap, a cure period, a grace period) suppress the matching suggestion.
-* An agreement-level check reports **possibly missing protections** (notice, liability cap, dispute resolution,
-  confidentiality, termination, cure period) for documents with 5+ clauses.
-* Suggestions are ordered into an action plan, High risk first.
-
-**📈 Risk score analysis** (`src/risk_analysis.py`)
-* Formula: High = 2 points, Medium = 1, Low = 0; score = points / (2 x clauses) x 100; bands Low < 35, Medium 35-60, High >= 60.
-* Per-category breakdown: how risky each category is, and how much of the overall score it explains.
-* **What-if scenarios**: the score if you renegotiate the 3 worst clauses, soften every High to Medium, or fix every High to Low.
-* **Reliability**: average model confidence, number of low-confidence clauses and rule-adjusted clauses.
-* Everything is also included in the PDF report and the CLI output.
-
-## New in v5: real-contract data (CUAD)
-
-The category model now also learns from **real, lawyer-annotated clauses** from CUAD (469 SEC-filed contracts, `src/cuad_import.py`).
-
-* On clauses from real contracts the model had never seen, category accuracy rose from **54% to 82%**.
-* Added an `Intellectual_Property` category (CUAD has many licence/ownership clauses).
-* **What it did not fix:** CUAD has *no risk ratings*, so the risk model is unchanged (~62% ML only, ~65% with rules), and on long real contracts
-  it **over-flags** (one test contract: 40% of clauses rated High). The app warns on documents with 60+ clauses.
-* Two ideas were tested and rejected with data (weak risk labels from CUAD, and an "Other" class) - see [docs/CUAD.md](docs/CUAD.md).
-* Evaluation page has a new *Real contracts (CUAD)* tab. Data attribution: `data/CUAD_ATTRIBUTION.md`.
-
-## New in v4
-
-| Feature | Where | What it does |
-|---|---|---|
-| **Feedback loop** | Clauses page -> "Wrong prediction? Correct it"; `POST /feedback` | Saves corrections to `data/user_feedback.csv` (validated, spreadsheet-injection safe). *Model Evaluation -> Retrain* merges them into the dataset (corrections override older labels) and retrains. |
-| **Model Evaluation page** | `pages/2_Model_Evaluation.py` | Cross-validated accuracy / macro-F1 vs baseline, per-class precision/recall/F1, confusion matrices, ML-only vs ML+rules, dataset balance, trust caveats, retrain button. |
-| **REST API** | `src/api.py` | `GET /health`, `POST /analyze`, `POST /predict-clause`, `POST /compare`, `POST /feedback`, `GET /metrics` with validation and size limits. |
-| **Compare contracts** | `pages/1_Compare_Contracts.py`, `src/compare.py` | Matches clauses between two versions (optimal TF-IDF matching + a rewrite pass), reports added / removed / modified / unchanged clauses, word-level diffs (numbers count), risk trend per clause and the overall score change. |
-| **AI explanations (optional)** | sidebar toggle -> "Explain with AI", `src/llm_explainer.py` | On click only, sends one clause to the Anthropic API and shows a plain-English explanation plus tailored wording. Off by default; needs a key; falls back silently to the built-in explanation. |
-
-API example:
+### Dashboard
 
 ```bash
-curl -X POST localhost:8000/predict-clause -H 'Content-Type: application/json' \
-     -d '{"clause": "The Company may terminate employment without prior notice."}'
+streamlit run app.py
 ```
 
-**About the AI feature:** the clause is wrapped in tags and the prompt tells the model to treat it as data, never as
-instructions; replies are shown as escaped text; errors never expose details. Using it sends clause text to a third-party
-API, so leave it off for confidential contracts. The model name is configurable with `LEGAL_LLM_MODEL`.
-The code is unit-tested with a fake client; it has not been exercised against the live API in this repository's test suite.
+Upload a contract (or paste text) and click **Analyze Agreement**. The sidebar has the Dashboard, Clauses, Risk Analysis, Suggestions and Insights views, plus two extra pages: **Compare Contracts** and **Model Evaluation**.
+
+### REST API
+
+```bash
+uvicorn src.api:app --reload
+```
+
+Interactive docs are at `http://127.0.0.1:8000/docs`.
+
+| Endpoint | Purpose |
+|---|---|
+| `GET /health` | Service and model status |
+| `POST /analyze` | Full analysis of an agreement |
+| `POST /predict-clause` | Category, risk and suggestions for one clause |
+| `POST /compare` | Compare two versions of an agreement |
+| `POST /feedback` | Submit a corrected label |
+| `GET /metrics` | Latest evaluation metrics |
+
+```bash
+curl -X POST localhost:8000/predict-clause \
+  -H 'Content-Type: application/json' \
+  -d '{"clause": "The Company may terminate employment without prior notice."}'
+```
+
+### Command line
+
+```bash
+python -m src.agreement_analyzer contract.txt
+```
 
 ## How it works
 
 ```
-text -> clause splitter -> TF-IDF (word + char n-grams) -> Logistic Regression  -> category + probabilities
-                                                        -> Logistic Regression  -> ML risk ──┐
-                                      rule engine (whole-word regex, negation, mitigation) ───┴─> hybrid risk + explanation
+contract text
+     │
+     ▼
+clause splitter
+     │
+     ▼
+TF-IDF features (word 1-2 grams + character 3-5 grams)
+     ├──► Logistic Regression ──► category + probability
+     └──► Logistic Regression ──► ML risk level ──┐
+                                                  ├──► final risk + explanation + suggestions
+rule engine (whole-word patterns, negation) ──────┘
 ```
 
-* **Hybrid decision** (`src/predict.py::combine_risk`): a strong rule phrase ("without notice",
-  "non-refundable", "forfeit"...) => High; a moderate keyword raises Low to Medium only if the model is
-  not >=70% sure; mitigating language ("mutual", "reasonable", "cure period") can soften a weak High.
-* **Explanations** list the rule that fired *and* the words that pushed the linear model toward its answer.
-* **Confidence** values are real model probabilities (no clamping).
+**Hybrid risk decision.** A strong phrase such as "without notice", "non-refundable" or "forfeit" makes a clause High. A moderate keyword can raise a Low clause to Medium unless the model is at least 70% sure it is Low. Mitigating language ("mutual", "reasonable", "cure period") can soften a High the model was unsure about. Rules never override a confident model prediction in the other direction.
 
-## Project layout
+**Risk score.** High counts 2 points, Medium 1, Low 0. The score is `points / (2 × clauses) × 100`, with bands Low (< 35), Medium (35–60) and High (≥ 60).
 
-```
-app.py                      Streamlit dashboard (Dashboard, Clauses, Risk Analysis, Suggestions, Insights)
-pages/                      extra Streamlit pages: Compare Contracts, Model Evaluation
-src/
-  config.py                 paths / constants
-  clause_splitter.py        abbreviation-, numbering- and wrap-aware clause extraction
-  preprocess.py             text normalisation (used inside the model pipeline)
-  rules.py                  rule engine
-  predict.py                hybrid prediction + explanations
-  suggestions.py            negotiation suggestions + missing-protection checks
-  risk_analysis.py          score breakdown, what-if scenarios, reliability
-  agreement_analyzer.py     agreement-level analysis (library + CLI)
-  report.py                 PDF export
-  cuad_import.py            builds data/cuad_clauses.csv from CUAD
-  compare.py                two-version comparison
-  feedback.py               user corrections + retraining
-  llm_explainer.py          optional LLM explanations
-  api.py                    FastAPI service
-  io_utils.py               file reading + markdown escaping
-  train_model.py            training + cross-validated evaluation
-  merge_dataset.py          builds data/final_legal_dataset.csv
-data/                       hand-labelled clause CSVs + cuad_clauses.csv (derived from CUAD) (+ user_feedback.csv once you submit corrections)
-models/                     trained pipelines (*.joblib) + metrics.json
-tests/                      pytest suite
-docs/LABELING.md            labeling rubric and dataset limitations
-docs/CUAD.md                how CUAD is used, experiments, limitations
-```
+## Data
 
-## Retrain
+| Source | Used for | Size |
+|---|---|---|
+| Hand-labelled clauses (`data/hand_labeled_clauses.csv`, `data/additional_clauses.csv`) | Category and risk models | 259 clauses |
+| [CUAD](https://github.com/TheAtticusProject/cuad) clauses (`data/cuad_clauses.csv`) | Category model only | 6,362 clauses from 469 real contracts |
+| User corrections (`data/user_feedback.csv`) | Both models, on retraining | grows with use |
 
-```bash
-python -m src.merge_dataset     # rebuild the dataset from data/*.csv
-python -m src.train_model       # cross-validate, print report, save models
-```
+CUAD contains lawyer-annotated clause *types* but no risk ratings, so the risk model is trained only on the hand-labelled data, labelled with the rubric in [`docs/LABELING.md`](docs/LABELING.md). How CUAD is used, and the experiments behind those choices, are in [`docs/CUAD.md`](docs/CUAD.md).
 
-## Measured performance
+## Results
+
+Measured with cross-validation; contract-level results are grouped by contract so no contract appears in both training and test data.
 
 | Task | Accuracy | Macro-F1 |
-|------|---------:|---------:|
-| Category, own clauses (11 classes, 5-fold CV, 259 clauses) | 0.79 | 0.80 |
-| **Category, unseen real contracts (CUAD, grouped by contract)** | **0.82** (0.54 without CUAD) | 0.81 |
-| Risk, ML only (own clauses, 5-fold CV) | 0.62 | 0.61 |
-| Risk, ML + rules (shipped) | 0.65 | 0.63 |
+|---|---:|---:|
+| Category, own clauses (5-fold CV) | 0.79 | 0.80 |
+| Category, unseen real contracts (CUAD) | 0.82 (0.54 without CUAD) | 0.81 |
+| Risk, ML only (5-fold CV) | 0.62 | 0.61 |
+| Risk, ML + rules (as shipped) | 0.65 | 0.63 |
 
-Risk numbers are modest because risk labels are still few and not lawyer-reviewed. Real-contract figures are slightly optimistic because the CUAD settings were tuned on the same folds.
+The **Model Evaluation** page shows per-class scores and confusion matrices.
 
-Metrics move by a few points whenever the data changes (for example after retraining with corrections) because the dataset is small.
+## Limitations
 
-## Future work
-Lawyer-reviewed risk labels on real clauses · a labelled 'not a key clause' set · party-aware rules · fine-tuned Legal-BERT · OCR for scanned PDFs · multilingual support · contract-type detection · entity extraction · Docker / CI.
+- **Risk labels are the weak point.** They come from about 260 clauses labelled by hand and have not been reviewed by a lawyer.
+- **Long real contracts are over-flagged.** The risk model was trained on short clauses; on one 54,000-character agreement it rated about 40% of clauses High. The app shows a warning for documents with 60 or more clauses.
+- **Only about 11% of clauses in a real contract are of a kind lawyers flag.** Definitions and boilerplate still receive a category, which dilutes the overall score.
+- **The rules are not party-aware.** A mutual indemnity, or a clause that favours the other side, can still be flagged.
+- The CUAD tuning was done on the same folds used to report the real-contract figure, so that number is slightly optimistic.
+- Scanned (image-only) PDFs are not supported.
 
-## Author
-Original project by **Taruni Middela**. v2 fixed data, modelling, rule-engine, splitter, packaging and app issues.
+## Optional: AI explanations
+
+Turn on **Enable "Explain with AI"** in the sidebar and provide an Anthropic API key (or set `ANTHROPIC_API_KEY`). Only the clause you click is sent, nothing is sent automatically, and the built-in explanation keeps working if the call fails. Contract text is treated as data, never as instructions, and the reply is shown as plain text. Because clause text leaves your machine, leave this off for confidential documents. The model is configurable with `LEGAL_LLM_MODEL`. This path is covered by unit tests with a fake client and has not been run against the live API.
+
+## Project structure
+
+```
+app.py                      Streamlit dashboard
+pages/                      Compare Contracts, Model Evaluation
+src/
+  clause_splitter.py        clause extraction
+  preprocess.py             text normalisation
+  rules.py                  rule engine
+  predict.py                hybrid prediction and explanations
+  suggestions.py            negotiation suggestions, missing-protection checks
+  risk_analysis.py          score breakdown, what-if scenarios, reliability
+  agreement_analyzer.py     agreement-level analysis (library and CLI)
+  compare.py                two-version comparison
+  feedback.py               corrections and retraining
+  report.py                 PDF export
+  api.py                    FastAPI service
+  llm_explainer.py          optional LLM explanations
+  cuad_import.py            builds data/cuad_clauses.csv from CUAD
+  merge_dataset.py          builds the training dataset
+  train_model.py            training and evaluation
+  config.py, io_utils.py    shared constants and helpers
+data/                       datasets
+models/                     trained models and metrics.json
+docs/                       labeling rubric, CUAD notes
+tests/                      pytest suite (72 tests)
+```
+
+## Development
+
+```bash
+python -m pytest -q                 # run the tests
+python -m src.merge_dataset         # rebuild the dataset from data/*.csv
+python -m src.train_model           # retrain and re-run both evaluations (~30 s)
+python -m src.cuad_import --download   # re-download CUAD and rebuild data/cuad_clauses.csv
+```
+
+See [`CHANGELOG.md`](CHANGELOG.md) for the history of changes.
+
+## Roadmap
+
+Lawyer-reviewed risk labels on real contract clauses, a labelled "not a key clause" class, party-aware rules, a fine-tuned legal language model, OCR for scanned PDFs, contract-type detection, and Docker/CI.
+
+## Acknowledgements and license
+
+This project builds on an open-source legal-risk classifier by **Taruni Middela** ([tarunibuilds](https://github.com/tarunibuilds)), released under the MIT License; the original copyright notice is kept in [`LICENSE`](LICENSE).
+
+Real-contract training data comes from **CUAD** (Hendrycks, Burns, Chen & Ball, 2021), released by The Atticus Project under CC BY 4.0. See [`data/CUAD_ATTRIBUTION.md`](data/CUAD_ATTRIBUTION.md).
