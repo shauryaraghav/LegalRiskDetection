@@ -168,6 +168,6 @@ Lawyer-reviewed risk labels on real contract clauses, a labelled "not a key clau
 
 ## Acknowledgements and license
 
-This project builds on an open-source legal-risk classifier by **Taruni Middela** ([tarunibuilds](https://github.com/tarunibuilds)), released under the MIT License; the original copyright notice is kept in [`LICENSE`](LICENSE).
+This project is released under the MIT License; the original copyright notice is kept in [`LICENSE`](LICENSE).
 
 Real-contract training data comes from **CUAD** (Hendrycks, Burns, Chen & Ball, 2021), released by The Atticus Project under CC BY 4.0. See [`data/CUAD_ATTRIBUTION.md`](data/CUAD_ATTRIBUTION.md).
